@@ -18,8 +18,9 @@ namespace Futbol
                 Console.Clear();
                 Console.WriteLine("====== MENÚ PRINCIPAL ======");
                 Console.WriteLine("1. Crear Equipo");
-                Console.WriteLine("2. Alta jugador");
-                Console.WriteLine("3. Listar equipo");
+                Console.WriteLine("2. Listar equipo");
+                Console.WriteLine("3. Alta jugador");
+                Console.WriteLine("4. Listar jugadores (equipo)");
                 Console.WriteLine("0. Salir");
                 Console.WriteLine("============================");
                 Console.Write("Selecciona una opción: ");
@@ -37,8 +38,10 @@ namespace Futbol
                         CrearEquipo();
                         break;
                     case 2:
+                        ListarEquipos();
                         break;
                     case 3:
+                        AltaJugador();
                         break;
                     case 0:
                         Console.WriteLine("Saliendo del programa...");
@@ -57,7 +60,23 @@ namespace Futbol
             Console.Write("Dime el nombre del equipo: ");
             nombre = Console.ReadLine();
 
-            Equipo.AgregarEquipo(nombre);
+            Equipo nuevoEquipo = new Equipo(nombre);
+
+            Equipo.AgregarEquipo(nuevoEquipo);
+        }
+
+        static void ListarEquipos()
+        {
+            Console.Clear();
+            Equipo.ListarEquipos();
+            Console.WriteLine("\nPresiona una tecla para continuar...");
+            Console.ReadKey();
+        }
+
+        static void AltaJugador()
+        {
+            Console.Clear();
+
         }
     }
 }
