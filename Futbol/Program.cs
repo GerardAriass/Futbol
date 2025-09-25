@@ -25,11 +25,10 @@ namespace Futbol
                 Console.WriteLine("============================");
                 Console.Write("Selecciona una opción: ");
 
-                if (!int.TryParse(Console.ReadLine(), out opcion))
+                while (!int.TryParse(Console.ReadLine(), out opcion))
                 {
                     Console.WriteLine("Por favor ingresa un número válido.");
-                    Console.ReadKey();
-                    continue;
+                    Console.Write("Selecciona una opción: ");
                 }
 
                 switch (opcion)
