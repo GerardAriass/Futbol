@@ -31,6 +31,7 @@ namespace Futbol
 
         public static void ListarEquipos()
         {
+            int enumeracion = 1;
             if (ListaEquipos.Count == 0)
             {
                 Console.WriteLine("No hay equipos registrados.");
@@ -40,7 +41,8 @@ namespace Futbol
             Console.WriteLine("\nEquipos registrados:");
             foreach (var equipo in ListaEquipos)
             {
-                Console.WriteLine($"- {equipo.Nombre}");
+                Console.WriteLine($"{enumeracion} {equipo.Nombre}");
+                enumeracion++;
             }
         }
 

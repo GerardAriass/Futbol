@@ -43,6 +43,9 @@ namespace Futbol
                     case 3:
                         AltaJugador();
                         break;
+                    case 4:
+                        ListarJugadoresPorEquipo();
+                        break;
                     case 0:
                         Console.WriteLine("Saliendo del programa...");
                         break;
@@ -123,6 +126,45 @@ namespace Futbol
             Console.WriteLine("Presiona una tecla para continuar...");
             Console.ReadKey();
         }
+
+        static void ListarJugadoresPorEquipo()
+        {
+            Console.Clear();
+
+            if (Equipo.ListaEquipos.Count == 0)
+            {
+                Console.WriteLine("No hay equipos registrados.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("Selecciona el equipo para ver sus jugadores:");
+
+            for (int i = 0; i < Equipo.ListaEquipos.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {Equipo.ListaEquipos[i].Nombre}");
+            }
+
+            int opcion;
+            while (true)
+            {
+                Console.Write("Opción: ");
+                if (int.TryParse(Console.ReadLine(), out opcion) &&
+                    opcion >= 1 && opcion <= Equipo.ListaEquipos.Count)
+                {
+                    break;
+                }
+                Console.WriteLine("Opción inválida. Intenta de nuevo.");
+            }
+
+            Equipo equipoSeleccionado = Equipo.ListaEquipos[opcion - 1];
+
+            equipoSeleccionado.ListarJugadores();
+
+            Console.WriteLine("\nPresiona una tecla para continuar...");
+            Console.ReadKey();
+        }
+
     }
 }
 
