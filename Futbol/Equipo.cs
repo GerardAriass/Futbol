@@ -14,10 +14,17 @@ namespace Futbol
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
 
+        public static List<Equipo> ListaEquipos { get; private set; } = new List<Equipo>();
+
         public Equipo()
         {
             this.Nombre = _nombre;
             this.Cantidad = _cantidad;
+        }
+
+        public static void AgregarEquipo(Equipo equipo)
+        {
+            ListaEquipos.Add(equipo);
         }
     }
 }

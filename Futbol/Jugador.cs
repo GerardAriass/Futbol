@@ -22,7 +22,5 @@ namespace Futbol
             this.Edad = _edad;
             this.Posicion = _posicion;
         }
-
-
     }
 }
