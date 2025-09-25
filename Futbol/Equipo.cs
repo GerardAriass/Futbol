@@ -8,7 +8,7 @@ namespace Futbol
 {
     internal class Equipo
     {
-        private string _nombre;
+     
         
         public List<Jugador> Jugadores { get; set; } = new List<Jugador>();
 
@@ -18,7 +18,7 @@ namespace Futbol
 
         public Equipo(string nombre)
         {
-            this._nombre = nombre;
+            this.Nombre = nombre;
         }
 
         // Añadir jugadores a la lista
