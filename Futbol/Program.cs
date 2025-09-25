@@ -11,6 +11,8 @@ namespace Futbol
     {
         static void Main(string[] args)
         {
+            Fichero.CargarDatos();
+
             int opcion;
 
             do
@@ -46,6 +48,7 @@ namespace Futbol
                         ListarJugadoresPorEquipo();
                         break;
                     case 0:
+                        Fichero.GuardarDatos();
                         Console.WriteLine("Saliendo del programa...");
                         break;
                     default:
