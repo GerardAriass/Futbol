@@ -34,6 +34,7 @@ namespace Futbol
                 switch (opcion)
                 {
                     case 1:
+                        CrearEquipo();
                         break;
                     case 2:
                         break;
@@ -50,6 +51,14 @@ namespace Futbol
             } while (opcion != 0);
         }
 
+        static void CrearEquipo()
+        {
+            string nombre;
+            Console.Write("Dime el nombre del equipo: ");
+            nombre = Console.ReadLine();
+
+            Equipo.AgregarEquipo(nombre);
+        }
     }
 }
-}
+
