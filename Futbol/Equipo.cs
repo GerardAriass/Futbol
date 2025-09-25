@@ -43,5 +43,16 @@ namespace Futbol
                 Console.WriteLine($"- {jugador.Nombre} ({jugador.Posicion}, {jugador.Edad} años)");
             }
         }
+
+        public static void CrearEquipo()
+        {
+            string nombre;
+            Console.Write("Dime el nombre del equipo: ");
+            nombre = Console.ReadLine();
+
+            Equipo nuevoEquipo = new Equipo(nombre);
+
+            Club.AgregarEquipo(nuevoEquipo);
+        }
     }
 }
