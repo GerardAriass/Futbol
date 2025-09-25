@@ -67,13 +67,13 @@ namespace Futbol
 
             Equipo nuevoEquipo = new Equipo(nombre);
 
-            Equipo.AgregarEquipo(nuevoEquipo);
+            Club.AgregarEquipo(nuevoEquipo);
         }
 
         static void ListarEquipos()
         {
             Console.Clear();
-            Equipo.ListarEquipos();
+            Club.ListarEquipos();
             Console.WriteLine("\nPresiona una tecla para continuar...");
             Console.ReadKey();
         }
@@ -82,7 +82,7 @@ namespace Futbol
         {
             Console.Clear();
 
-            if (Equipo.ListaEquipos.Count == 0)
+            if (Club.ListaEquipos.Count == 0)
             {
                 Console.WriteLine("Primero debes crear un equipo antes de dar de alta jugadores.");
                 Console.ReadKey();
@@ -106,20 +106,20 @@ namespace Futbol
             string posicion = Console.ReadLine();
 
             Console.WriteLine("\nSelecciona el equipo al que pertenece:");
-            Equipo.ListarEquipos();
+            Club.ListarEquipos();
             int opcionEquipo;
             while (true)
             {
                 Console.Write("Opción: ");
                 if (int.TryParse(Console.ReadLine(), out opcionEquipo) &&
                     opcionEquipo >= 1 &&
-                    opcionEquipo <= Equipo.ListaEquipos.Count)
+                    opcionEquipo <= Club.ListaEquipos.Count)
                     break;
 
                 Console.WriteLine("Opción inválida. Intenta nuevamente.");
             }
 
-            Equipo equipoSeleccionado = Equipo.ListaEquipos[opcionEquipo - 1];
+            Equipo equipoSeleccionado = Club.ListaEquipos[opcionEquipo - 1];
 
             Jugador nuevoJugador = new Jugador(nombre, edad, posicion);
             equipoSeleccionado.AgregarJugador(nuevoJugador);
@@ -133,7 +133,7 @@ namespace Futbol
         {
             Console.Clear();
 
-            if (Equipo.ListaEquipos.Count == 0)
+            if (Club.ListaEquipos.Count == 0)
             {
                 Console.WriteLine("No hay equipos registrados.");
                 Console.ReadKey();
@@ -142,9 +142,9 @@ namespace Futbol
 
             Console.WriteLine("Selecciona el equipo para ver sus jugadores:");
 
-            for (int i = 0; i < Equipo.ListaEquipos.Count; i++)
+            for (int i = 0; i < Club.ListaEquipos.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {Equipo.ListaEquipos[i].Nombre}");
+                Console.WriteLine($"{i + 1}. {Club.ListaEquipos[i].Nombre}");
             }
 
             int opcion;
@@ -152,14 +152,14 @@ namespace Futbol
             {
                 Console.Write("Opción: ");
                 if (int.TryParse(Console.ReadLine(), out opcion) &&
-                    opcion >= 1 && opcion <= Equipo.ListaEquipos.Count)
+                    opcion >= 1 && opcion <= Club.ListaEquipos.Count)
                 {
                     break;
                 }
                 Console.WriteLine("Opción inválida. Intenta de nuevo.");
             }
 
-            Equipo equipoSeleccionado = Equipo.ListaEquipos[opcion - 1];
+            Equipo equipoSeleccionado = Club.ListaEquipos[opcion - 1];
 
             equipoSeleccionado.ListarJugadores();
 

@@ -17,7 +17,7 @@ namespace Futbol
                 WriteIndented = true
             };
 
-            string json = JsonSerializer.Serialize(Equipo.ListaEquipos, opciones);
+            string json = JsonSerializer.Serialize(Club.ListaEquipos, opciones);
             File.WriteAllText("datos.json", json);
         }
 
@@ -32,8 +32,8 @@ namespace Futbol
 
             if (equipos != null)
             {
-                Equipo.ListaEquipos.Clear();
-                Equipo.ListaEquipos.AddRange(equipos);
+                Club.ListaEquipos.Clear();
+                Club.ListaEquipos.AddRange(equipos);
             }
         }
     }

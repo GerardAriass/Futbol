@@ -9,7 +9,7 @@ namespace Futbol
     internal class Equipo
     {
         private string _nombre;
-        public static List<Equipo> ListaEquipos { get; private set; } = new List<Equipo>();
+        
         public List<Jugador> Jugadores { get; set; } = new List<Jugador>();
 
         public Equipo() { }
@@ -19,28 +19,6 @@ namespace Futbol
         public Equipo(string nombre)
         {
             this._nombre = nombre;
-        }
-
-        public static void AgregarEquipo(Equipo equipo)
-        {
-            ListaEquipos.Add(equipo);
-        }
-
-        public static void ListarEquipos()
-        {
-            int enumeracion = 1;
-            if (ListaEquipos.Count == 0)
-            {
-                Console.WriteLine("No hay equipos registrados.");
-                return;
-            }
-
-            Console.WriteLine("\nEquipos registrados:");
-            foreach (var equipo in ListaEquipos)
-            {
-                Console.WriteLine($"{enumeracion} {equipo.Nombre}");
-                enumeracion++;
-            }
         }
 
         // Añadir jugadores a la lista
