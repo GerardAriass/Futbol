@@ -10,14 +10,17 @@ namespace Futbol
     {
         private string _nombre;
         private int _edad;
+        private string _posicion;
 
         public string Nombre { get; set; }
         public int Edad { get; set; }
+        public string Posicion { get; set; }
 
         public Jugador()
         {
             this.Nombre = _nombre;
             this.Edad = _edad;
+            this.Posicion = _posicion;
         }
 
 
