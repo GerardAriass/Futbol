@@ -10,19 +10,16 @@ namespace Futbol
     {
         private string _nombre;
         public static List<Equipo> ListaEquipos { get; private set; } = new List<Equipo>();
-        public List<Jugador> Jugadores { get; private set; } = new List<Jugador>();
+        public List<Jugador> Jugadores { get; set; } = new List<Jugador>();
 
-        public string Nombre
-        {
-            get { return _nombre; }
-            private set { _nombre = value; }
-        }
+        public Equipo() { }
+
+        public string Nombre { get; set; }
 
         public Equipo(string nombre)
         {
             this._nombre = nombre;
         }
-
 
         public static void AgregarEquipo(Equipo equipo)
         {

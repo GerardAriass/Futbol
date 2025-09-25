@@ -12,6 +12,8 @@ namespace Futbol
         public string Nombre { get; set; }
         public int Edad { get; set; }
         public string Posicion { get; set; }
+
+        public Jugador() { }
         public Jugador(string nombre, int edad, string posicion)
         {
             Nombre = nombre;
