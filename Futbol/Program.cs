@@ -77,6 +77,51 @@ namespace Futbol
         {
             Console.Clear();
 
+            if (Equipo.ListaEquipos.Count == 0)
+            {
+                Console.WriteLine("Primero debes crear un equipo antes de dar de alta jugadores.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("====== ALTA DE JUGADOR ======");
+            Console.Write("Nombre: ");
+            string nombre = Console.ReadLine();
+
+            int edad;
+            while (true)
+            {
+                Console.Write("Edad: ");
+                if (int.TryParse(Console.ReadLine(), out edad) && edad > 0)
+                    break;
+                Console.WriteLine("Edad no válida. Intenta nuevamente.");
+            }
+
+            Console.Write("Posición: ");
+            string posicion = Console.ReadLine();
+
+            Console.WriteLine("\nSelecciona el equipo al que pertenece:");
+            Equipo.ListarEquipos();
+            int opcionEquipo;
+            while (true)
+            {
+                Console.Write("Opción: ");
+                if (int.TryParse(Console.ReadLine(), out opcionEquipo) &&
+                    opcionEquipo >= 1 &&
+                    opcionEquipo <= Equipo.ListaEquipos.Count)
+                    break;
+
+                Console.WriteLine("Opción inválida. Intenta nuevamente.");
+            }
+
+            Equipo equipoSeleccionado = Equipo.ListaEquipos[opcionEquipo - 1];
+
+            Jugador nuevoJugador = new Jugador(nombre, edad, posicion);
+            equipoSeleccionado.AgregarJugador(nuevoJugador);
+
+            Console.WriteLine("\nJugador dado de alta con éxito.");
+            Console.WriteLine("Presiona una tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }
